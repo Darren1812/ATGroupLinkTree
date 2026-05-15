@@ -42,7 +42,7 @@ const links = [
   {
     id: "whatsapp",
     label: "WhatsApp",
-    sub: "+60 18-201 6989",
+    sub: "+60 16 717 0107",
     href: "https://wa.me/60167170107",
     icon: (
       <svg viewBox='0 0 24 24' fill='currentColor' className='w-5 h-5'>
