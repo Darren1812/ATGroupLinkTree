@@ -169,12 +169,12 @@ export default function ATGroupLinks() {
     AT Group
   </h1>
 
-  <p className='text-sm text-gray-500 mt-1'>
-    @ATGroup1984 · Since 1984
+  <p className='text-sm font-bold text-gray-500 mt-1'>
+    · Since 1984 ·
   </p>
 
 <div className='flex flex-col items-center mt-3 text-[11px] text-gray-400 max-w-sm gap-1'>
-  <p className='font-medium text-gray-500 text-xs'>Your Trusted Partner for Smarter Workspaces</p>
+  <p className='font-medium text-gray-500 text-xs'>Your Trusted Partner for Smarter Workspaces in MY & SG</p>
   <div className='flex flex-wrap justify-center items-center gap-x-2 text-gray-400'>
     <span>Sales</span>
     <span className='text-gray-300'>•</span>
