@@ -183,7 +183,7 @@ export default function ATGroupLinks() {
     <span>Technical Support</span>
   </div>
   <p className='text-[10px] text-gray-400/80 mt-0.5'>
-    Multi-Function & Large Format Printers | Malaysia & Singapore
+    Multi-Function & Large Format Printer & Business Technology Solutions
   </p>
 </div>
 </div>
