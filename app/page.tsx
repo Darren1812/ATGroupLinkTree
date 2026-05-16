@@ -173,12 +173,19 @@ export default function ATGroupLinks() {
     @ATGroup1984 · Since 1984
   </p>
 
-  <p className='text-xs text-center text-gray-400 mt-2 max-w-xs'>
-    Your Trusted Partner for Smarter Workspaces - providing sales,
-    rental, and technical support for Multi-Function Printers, Large
-    Format Printers, and Business Technology Solutions across Malaysia &
-    Singapore.
+<div className='flex flex-col items-center mt-3 text-[11px] text-gray-400 max-w-sm gap-1'>
+  <p className='font-medium text-gray-500 text-xs'>Your Trusted Partner for Smarter Workspaces</p>
+  <div className='flex flex-wrap justify-center items-center gap-x-2 text-gray-400'>
+    <span>Sales</span>
+    <span className='text-gray-300'>•</span>
+    <span>Rental</span>
+    <span className='text-gray-300'>•</span>
+    <span>Technical Support</span>
+  </div>
+  <p className='text-[10px] text-gray-400/80 mt-0.5'>
+    Multi-Function & Large Format Printers | Malaysia & Singapore
   </p>
+</div>
 </div>
 
         {/* Links */}
