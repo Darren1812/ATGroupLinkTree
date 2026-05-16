@@ -27,19 +27,6 @@ const links = [
     bg: "#e8edf8",
   },
   {
-    id: "facebook",
-    label: "Facebook",
-    sub: "atpsalesandservices",
-    href: "https://facebook.com/atpsalesandservices",
-    icon: (
-      <svg viewBox='0 0 24 24' fill='currentColor' className='w-5 h-5'>
-        <path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' />
-      </svg>
-    ),
-    color: "#1877f2",
-    bg: "#e7f0fd",
-  },
-  {
     id: "whatsapp",
     label: "WhatsApp",
     sub: "+60 16 717 0107",
@@ -77,6 +64,19 @@ const links = [
     ),
     color: "#ff0000",
     bg: "#ffe8e8",
+  },
+  {
+    id: "facebook",
+    label: "Facebook",
+    sub: "atpsalesandservices",
+    href: "https://facebook.com/atpsalesandservices",
+    icon: (
+      <svg viewBox='0 0 24 24' fill='currentColor' className='w-5 h-5'>
+        <path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' />
+      </svg>
+    ),
+    color: "#1877f2",
+    bg: "#e7f0fd",
   },
   {
     id: "tiktok",
@@ -127,29 +127,59 @@ export default function ATGroupLinks() {
   return (
     <main className='min-h-screen bg-[#f2f3f5] flex items-start justify-center py-10 px-4'>
       <div className='w-full max-w-[480px]'>
-        {/* Header */}
-        <div className='flex flex-col items-center mb-8'>
-          {/* Logo */}
-          <div className='w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center mb-4 border border-gray-100 overflow-hidden'>
-            <Image
-              src='/20231122_AT_GROUP_LOGO_ROUND[1]_2.png'
-              alt='AT Group Logo'
-              width={80}
-              height={80}
-              className='object-contain w-full h-full'
-            />
-          </div>
-          <h1 className='text-2xl font-bold text-gray-800 tracking-tight'>
-            AT Group
-          </h1>
-          <p className='text-sm text-gray-500 mt-1'>
-            @ATGroup1984 · Since 1984
-          </p>
-          <p className='text-xs text-center text-gray-400 mt-2 max-w-xs'>
-            Your trusted partner for plotters, copiers & office solutions in
-            Johor Bahru.
-          </p>
-        </div>
+{/* Header */}
+<div className='flex flex-col items-center mb-8'>
+  {/* Top Branding Row */}
+  <div className='flex items-center justify-center gap-6 mb-4'>
+    {/* Left Image Wrapper (Valid Tailwind size to make it pop) */}
+    <div className='w-28 h-28 flex items-center justify-center'>
+      <Image
+        src='/Screenshot_2026-05-16_140932-removebg-preview.png'
+        alt='Archidex'
+        width={96}
+        height={96}
+        className='object-contain w-full h-full'
+      />
+    </div>
+
+    {/* Center Logo (Restored the circular background, shadow, and padding) */}
+    <div className='w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100 pt-1 overflow-hidden flex-shrink-0'>
+      <Image
+        src='/20231122_AT_GROUP_LOGO_ROUND[1]_2.png'
+        alt='AT Group Logo'
+        width={88}
+        height={88}
+        className='object-contain rounded-full'
+      />
+    </div>
+
+    {/* Right Image Wrapper (Valid Tailwind size to keep it clean) */}
+    <div className='w-24 h-24 flex items-center justify-center'>
+      <Image
+        src='/C5500i-removebg-preview.png'
+        alt='Canon Printer'
+        width={80}
+        height={80}
+        className='object-contain w-full h-full'
+      />
+    </div>
+  </div>
+
+  <h1 className='text-2xl font-bold text-gray-800 tracking-tight'>
+    AT Group
+  </h1>
+
+  <p className='text-sm text-gray-500 mt-1'>
+    @ATGroup1984 · Since 1984
+  </p>
+
+  <p className='text-xs text-center text-gray-400 mt-2 max-w-xs'>
+    Your Trusted Partner for Smarter Workspaces - providing sales,
+    rental, and technical support for Multi-Function Printers, Large
+    Format Printers, and Business Technology Solutions across Malaysia &
+    Singapore.
+  </p>
+</div>
 
         {/* Links */}
         <div className='flex flex-col gap-3'>
@@ -203,8 +233,7 @@ export default function ATGroupLinks() {
 
         {/* Footer */}
         <p className='text-center text-xs text-gray-400 mt-8'>
-          © {new Date().getFullYear()} AT Group · Since 1984 · Johor Bahru,
-          Malaysia
+          Canon · HP · Konica Minolta · Sharp
         </p>
       </div>
     </main>
