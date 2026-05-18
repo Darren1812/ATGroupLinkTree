@@ -7,7 +7,7 @@ const links = [
     id: "website",
     label: "Official Website",
     sub: "atgroup.com.my",
-    href: "https://atgroup.com.my",
+    href: "https://atgroup.com.my/products-services",
     icon: (
       <svg
         viewBox='0 0 24 24'
@@ -125,68 +125,37 @@ export default function ATGroupLinks() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <main className='min-h-screen bg-[#f2f3f5] flex items-start justify-center py-10 px-4'>
-      <div className='w-full max-w-[480px]'>
-{/* Header */}
-<div className='flex flex-col items-center mb-8'>
-  {/* Top Branding Row */}
-  <div className='flex items-center justify-center gap-6 mb-4'>
-    {/* Left Image Wrapper (Valid Tailwind size to make it pop) */}
-    <div className='w-28 h-28 flex items-center justify-center'>
-      <Image
-        src='/Screenshot_2026-05-16_140932-removebg-preview.png'
-        alt='Archidex'
-        width={96}
-        height={96}
-        className='object-contain w-full h-full'
-      />
-    </div>
+    <main className='min-h-screen bg-[#f2f3f5] flex flex-col items-center py-0 px-0'>
+      
+      {/* 图片：全宽，不受 max-w 限制 */}
+      <div className='w-full'>
+        <Image
+          src='/ATP WEbiste_LANDpAGE.png'
+          alt='AT Group Profile'
+          width={1200}
+          height={900}
+          priority
+          className='w-full h-auto block'
+        />
+      </div>
 
-    {/* Center Logo (Restored the circular background, shadow, and padding) */}
-    <div className='w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100 pt-1 overflow-hidden flex-shrink-0'>
-      <Image
-        src='/20231122_AT_GROUP_LOGO_ROUND[1]_2.png'
-        alt='AT Group Logo'
-        width={88}
-        height={88}
-        className='object-contain rounded-full'
-      />
-    </div>
-
-    {/* Right Image Wrapper (Valid Tailwind size to keep it clean) */}
-    <div className='w-24 h-24 flex items-center justify-center'>
-      <Image
-        src='/C5500i-removebg-preview.png'
-        alt='Canon Printer'
-        width={80}
-        height={80}
-        className='object-contain w-full h-full'
-      />
-    </div>
-  </div>
-
-  <h1 className='text-2xl font-bold text-gray-800 tracking-tight'>
-    AT Group
-  </h1>
-
-  <p className='text-sm font-bold text-gray-500 mt-1'>
-    · Since 1984 ·
-  </p>
-
-<div className='flex flex-col items-center mt-3 text-[11px] text-gray-400 max-w-sm gap-1'>
-  <p className='font-medium text-gray-500 text-xs'>Your Trusted Partner for Smarter Workspaces in MY & SG</p>
-  <div className='flex flex-wrap justify-center items-center gap-x-2 text-gray-400'>
-    <span>Sales</span>
-    <span className='text-gray-300'>•</span>
-    <span>Rental</span>
-    <span className='text-gray-300'>•</span>
-    <span>Technical Support</span>
-  </div>
-  <p className='text-[10px] text-gray-400/80 mt-0.5'>
-    Multi-Function & Large Format Printer & Business Technology Solutions
-  </p>
-</div>
-</div>
+      {/* 内容区域：有 max-w 和 px */}
+      <div className='w-full max-w-[480px] px-4'>
+        
+        {/* 副标题文字 */}
+        <div className='flex flex-col items-center mt-2 mb-6 text-[11px] text-gray-400 gap-1'>
+          <p className='font-medium text-gray-500 text-xs'>Your Trusted Partner for Smarter Workspaces in MY & SG</p>
+          <div className='flex flex-wrap justify-center items-center gap-x-2 text-gray-400'>
+            <span>Sales</span>
+            <span className='text-gray-300'>•</span>
+            <span>Rental</span>
+            <span className='text-gray-300'>•</span>
+            <span>Technical Support</span>
+          </div>
+          <p className='text-[10px] text-gray-400/80 mt-0.5'>
+            Multi-Function & Large Format Printer & Business Technology Solutions
+          </p>
+        </div>
 
         {/* Links */}
         <div className='flex flex-col gap-3'>
@@ -239,7 +208,7 @@ export default function ATGroupLinks() {
         </div>
 
         {/* Footer */}
-        <p className='text-center text-xs text-gray-400 mt-8'>
+        <p className='text-center text-xs text-gray-400 mt-8 mb-8'>
           Canon · HP · Konica Minolta · Sharp
         </p>
       </div>
