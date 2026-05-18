@@ -2,6 +2,27 @@
 
 import { useState } from "react";
 import Image from "next/image";
+
+// 1. Define your pre-set messages
+const WHATSAPP_OPTIONS = [
+  {
+    label: "Printer Rental Inquiry",
+    text: "Hi AT Group, I'm interested in renting a copier/printer. Can I get more details?",
+  },
+  {
+    label: "Technical Support",
+    text: "Hi technical team, I need assistance with my machine.",
+  },
+  {
+    label: "Purchase Consumables",
+    text: "Hi, I would like to order toner/ink for my printer.",
+  },
+  {
+    label: "General Inquiry",
+    text: "Hi, I have a general question about your services.",
+  },
+];
+
 const links = [
   {
     id: "website",
@@ -123,11 +144,43 @@ const links = [
 
 export default function ATGroupLinks() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [showWaOptions, setShowWaOptions] = useState(false);
+  const handleWaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowWaOptions(true);
+  };
+  const sendWaMessage = (messageText: string) => {
+    const encodedMsg = encodeURIComponent(messageText);
+    const phoneNumber = "60167170107";
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMsg}`, "_blank");
+    setShowWaOptions(false);
+  };
+return (
+    <main className='min-h-screen bg-[#f2f3f5] flex flex-col items-center py-0 px-0 relative'>
+      {/* 2. WhatsApp Selection Modal Overlay */}
+      {showWaOptions && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl animate-in slide-in-from-bottom-10">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="font-bold text-gray-800 text-lg">How can we help?</h3>
+              <button onClick={() => setShowWaOptions(false)} className="text-gray-400 hover:text-gray-600 p-2">✕</button>
+            </div>
+            <div className="flex flex-col gap-3">
+              {WHATSAPP_OPTIONS.map((opt, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => sendWaMessage(opt.text)}
+                  className="w-full text-left p-4 rounded-xl border border-gray-100 bg-gray-50 hover:bg-[#e6f9ee] hover:border-[#25d366] transition-colors font-medium text-gray-700 text-sm"
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
-  return (
-    <main className='min-h-screen bg-[#f2f3f5] flex flex-col items-center py-0 px-0'>
-      
-      {/* 图片：全宽，不受 max-w 限制 */}
+      {/* Hero Image */}
       <div className='w-full'>
         <Image
           src='/ATP WEbiste_LANDpAGE.png'
@@ -139,25 +192,16 @@ export default function ATGroupLinks() {
         />
       </div>
 
-      {/* 内容区域：有 max-w 和 px */}
       <div className='w-full max-w-[480px] px-4'>
-        
-        {/* 副标题文字 */}
+        {/* Header Text */}
         <div className='flex flex-col items-center mt-2 mb-6 text-[11px] text-gray-400 gap-1'>
           <p className='font-medium text-gray-500 text-xs'>Your Trusted Partner for Smarter Workspaces in MY & SG</p>
           <div className='flex flex-wrap justify-center items-center gap-x-2 text-gray-400'>
-            <span>Sales</span>
-            <span className='text-gray-300'>•</span>
-            <span>Rental</span>
-            <span className='text-gray-300'>•</span>
-            <span>Technical Support</span>
+            <span>Sales</span> • <span>Rental</span> • <span>Technical Support</span>
           </div>
-          <p className='text-[10px] text-gray-400/80 mt-0.5'>
-            Multi-Function & Large Format Printer & Business Technology Solutions
-          </p>
         </div>
 
-        {/* Links */}
+        {/* Links List */}
         <div className='flex flex-col gap-3'>
           {links.map((link) => (
             <a
@@ -165,6 +209,8 @@ export default function ATGroupLinks() {
               href={link.href}
               target='_blank'
               rel='noopener noreferrer'
+              // 3. Conditional click handler for WhatsApp
+              onClick={link.id === "whatsapp" ? handleWaClick : undefined}
               onMouseEnter={() => setHoveredId(link.id)}
               onMouseLeave={() => setHoveredId(null)}
               className='group flex items-center gap-4 bg-white rounded-2xl px-4 py-3.5 shadow-sm border border-gray-100 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]'
@@ -173,7 +219,6 @@ export default function ATGroupLinks() {
                 borderLeftColor: hoveredId === link.id ? link.color : "#f3f4f6",
               }}
             >
-              {/* Icon box */}
               <div
                 className='flex items-center justify-center w-10 h-10 rounded-xl flex-shrink-0 transition-transform duration-200 group-hover:scale-110'
                 style={{ background: link.bg, color: link.color }}
@@ -181,36 +226,19 @@ export default function ATGroupLinks() {
                 {link.icon}
               </div>
 
-              {/* Text */}
               <div className='flex-1 min-w-0'>
-                <p className='font-semibold text-gray-800 text-sm leading-tight'>
-                  {link.label}
-                </p>
-                <p className='text-xs text-gray-400 truncate mt-0.5'>
-                  {link.sub}
-                </p>
+                <p className='font-semibold text-gray-800 text-sm leading-tight'>{link.label}</p>
+                <p className='text-xs text-gray-400 truncate mt-0.5'>{link.sub}</p>
               </div>
 
-              {/* Arrow */}
-              <svg
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='w-4 h-4 text-gray-300 flex-shrink-0 transition-all duration-200 group-hover:text-gray-500 group-hover:translate-x-0.5'
-              >
+              <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' className='w-4 h-4 text-gray-300 transition-all group-hover:text-gray-500 group-hover:translate-x-0.5'>
                 <path d='M5 12h14M12 5l7 7-7 7' />
               </svg>
             </a>
           ))}
         </div>
 
-        {/* Footer */}
-        <p className='text-center text-xs text-gray-400 mt-8 mb-8'>
-          Canon · HP · Konica Minolta · Sharp
-        </p>
+        <p className='text-center text-xs text-gray-400 mt-8 mb-8'>Canon · HP · Konica Minolta · Sharp</p>
       </div>
     </main>
   );
